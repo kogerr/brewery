@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment files (contain secrets)
+.env
+rpi-pill/.env
+
+# Android build artifacts
+rpi-pill/android-widget/app/build/
+rpi-pill/android-widget/build/
+rpi-pill/android-widget/.gradle/
+rpi-pill/android-widget/local.properties
+
+# OS files
+.DS_Store
+
+# Credentials and keys
+rapt_io_key.yaml
+brewfather_key.yaml
+
+# Playwright MCP logs
+.playwright-mcp/
+
+# Android Studio IDE files
+rpi-pill/android-widget/.idea/

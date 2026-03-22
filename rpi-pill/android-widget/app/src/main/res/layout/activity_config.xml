@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_title"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:paddingBottom="16dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_host_label"
+        android:textSize="14sp"
+        android:paddingBottom="8dp" />
+
+    <EditText
+        android:id="@+id/host_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/config_host_hint"
+        android:inputType="textUri"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_fallback_label"
+        android:textSize="14sp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp" />
+
+    <EditText
+        android:id="@+id/fallback_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/config_fallback_hint"
+        android:inputType="textUri"
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/config_pill_label"
+        android:textSize="14sp"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp" />
+
+    <EditText
+        android:id="@+id/pill_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/config_pill_hint"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/config_save" />
+
+</LinearLayout>

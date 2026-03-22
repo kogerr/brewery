@@ -1,0 +1,13 @@
+{
+  "name": "rpi-pill",
+  "version": "1.0.0",
+  "description": "RAPT Pill BLE relay for Raspberry Pi - forwards readings to Brewfather and serves a local dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-25",
+    "express": "^4.21.0"
+  }
+}

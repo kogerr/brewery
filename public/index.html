@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brewery</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Recipes</h2>
+      <input type="text" id="recipe-search" placeholder="Filter recipes...">
+      <ul id="recipe-list"></ul>
+    </aside>
+
+    <main class="content">
+      <nav class="tabs">
+        <button class="tab active" data-tab="recipe">Recipe</button>
+        <button class="tab" data-tab="pitching">Pitching Rate</button>
+        <button class="tab" data-tab="abv">ABV Calculator</button>
+        <button class="tab" data-tab="order">Hopline Order</button>
+      </nav>
+
+      <!-- Recipe details -->
+      <section id="tab-recipe" class="tab-content active">
+        <div id="recipe-empty" class="placeholder">Select a recipe from the sidebar</div>
+        <div id="recipe-details" hidden>
+          <h2 id="recipe-name"></h2>
+          <div class="recipe-stats">
+            <span>OG: <strong id="recipe-og"></strong></span>
+            <span>FG: <strong id="recipe-fg"></strong></span>
+            <span>Batch: <strong id="recipe-batch"></strong> L</span>
+          </div>
+          <h3>Fermentables</h3>
+          <table id="table-fermentables">
+            <thead><tr><th>Name</th><th>Supplier</th><th>Amount (kg)</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <h3>Hops</h3>
+          <table id="table-hops">
+            <thead><tr><th>Name</th><th>Amount (g)</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <h3>Yeasts</h3>
+          <table id="table-yeasts">
+            <thead><tr><th>Name</th><th>Lab</th><th>Amount</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Pitching rate calculator -->
+      <section id="tab-pitching" class="tab-content" hidden>
+        <h2>Pitching Rate Calculator</h2>
+        <p class="subtitle">Lallemand dry yeast pitching rates</p>
+        <div class="form-grid">
+          <label for="pitch-yeast">Yeast</label>
+          <select id="pitch-yeast"></select>
+
+          <label for="pitch-og">Original Gravity (SG)</label>
+          <input type="number" id="pitch-og" step="0.001" value="1.050">
+
+          <label for="pitch-volume">Batch Size (L)</label>
+          <input type="number" id="pitch-volume" step="0.1" value="21">
+
+          <label for="pitch-temp">Pitch Temp (C)</label>
+          <input type="number" id="pitch-temp" step="0.1" value="20">
+        </div>
+        <div id="pitch-result" class="result-box" hidden></div>
+      </section>
+
+      <!-- ABV calculator -->
+      <section id="tab-abv" class="tab-content" hidden>
+        <h2>ABV Calculator</h2>
+        <div class="form-grid">
+          <label for="abv-og">Original Gravity (SG)</label>
+          <input type="number" id="abv-og" step="0.001" value="1.050">
+
+          <label for="abv-fg">Final Gravity (SG)</label>
+          <input type="number" id="abv-fg" step="0.001" value="1.010">
+        </div>
+        <div id="abv-result" class="result-box" hidden></div>
+      </section>
+
+      <!-- Hopline order -->
+      <section id="tab-order" class="tab-content" hidden>
+        <h2>Hopline Order</h2>
+        <div id="order-empty" class="placeholder">Select a recipe first, then check availability</div>
+        <div id="order-panel" hidden>
+          <p>Recipe: <strong id="order-recipe-name"></strong></p>
+          <button id="order-check" class="btn">Check Hopline Availability</button>
+          <div id="order-loading" hidden class="loading">Checking products and stock...</div>
+          <div id="order-results" hidden>
+            <table id="order-table">
+              <thead><tr>
+                <th><input type="checkbox" id="order-select-all" checked></th>
+                <th>Ingredient</th><th>Need</th><th>Hopline Match</th><th>SKU</th><th>Stock</th><th>Qty</th>
+              </tr></thead>
+              <tbody></tbody>
+            </table>
+            <button id="order-submit" class="btn btn-primary">Add to Hopline Cart</button>
+            <div id="order-status" hidden></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="widget_background">#E61a1a2e</color>
+    <color name="chart_gravity">#f59e0b</color>
+    <color name="chart_temperature">#3b82f6</color>
+    <color name="text_primary">#aaaacc</color>
+    <color name="text_secondary">#666688</color>
+    <color name="grid_line">#333355</color>
+</resources>

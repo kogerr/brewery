@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pill Widget</string>
+    <string name="widget_title">Fermentation</string>
+    <string name="widget_description">Displays fermentation gravity and temperature chart from RPi Pill hydrometer</string>
+    <string name="widget_no_data">No data</string>
+    <string name="chart_description">Fermentation chart</string>
+    <string name="config_title">Configure Widget</string>
+    <string name="config_host_label">RPi server URL (local network)</string>
+    <string name="config_host_hint">http://192.168.1.100:3000</string>
+    <string name="config_fallback_label">Fallback URL (e.g. remote/VPN access)</string>
+    <string name="config_fallback_hint">http://your-public-ip:3000</string>
+    <string name="config_pill_label">Pill name (e.g. Pastilla, Nuevo — leave empty for default)</string>
+    <string name="config_pill_hint">Nuevo</string>
+    <string name="config_save">Save</string>
+</resources>
