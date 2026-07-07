@@ -14,6 +14,7 @@ This project contains scripts to interact with Brewfather (recipe management) an
 - `hopline_cart.js <sku> <qty> <cookie>` - Adds a product to Hopline cart with given quantity
 - `rapt_login.js` - Logs in to RAPT, outputs bearer token
 - `rapt_telemetry.js` - Gets gravity/temp readings from active (or most recent) RAPT hydrometer
+- `rapt_brewzilla_set_pid.js [p] [i] [d] [brewZillaId]` - Sets PID coefficients on the BrewZilla via the RAPT API (defaults: p=0.50 i=0.002 d=0.00; picks first BrewZilla if id omitted). Reads back the values to confirm.
 - `calculator-pitching-rate.js <yeast> <og_sg> <liters> <temp_c>` - Lallemand pitching rate calculator
 - `calculator-abv.js <og_sg> <fg_sg> [standard|alternate]` - ABV, attenuation, calories calculator
 - `calculator-gravity.js <unit> <value>` - Converts between sg/brix/oechsle/baume/kmw/density/alcohol/sugar

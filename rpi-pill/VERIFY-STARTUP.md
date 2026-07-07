@@ -8,7 +8,7 @@ Step-by-step instructions to verify the RPi-Pill system is working after powerin
 - One or both RAPT Pills are turned on and in Bluetooth mode:
   - **Pastilla** (BLE MAC `90:38:0c:12:64:4a`)
   - **Nuevo** (BLE MAC `ec:62:60:28:3e:4a`)
-- The Pi is reachable as `rpi3` or `192.168.1.107`
+- The Pi is reachable as `rpi3`, `192.168.1.107`, or `192.168.0.33` (the IP depends on which network/subnet the Pi joined — `rpi3` resolves on all of them)
 
 ## Step 1: Verify SSH Access
 
@@ -26,7 +26,19 @@ ssh koger@rpi3 "sudo hciconfig hci0"
 ```
 
 **Expected**: Output includes `UP RUNNING` on the second line.
-**If it fails or shows `DOWN`**: The `hci0-up.service` may not have started. Fix with:
+**If it shows `DOWN`**: First check that the Bluetooth daemon is running:
+
+```bash
+ssh koger@rpi3 "systemctl is-active bluetooth"
+```
+
+If it says `inactive`, enable and start it:
+
+```bash
+ssh koger@rpi3 "sudo systemctl enable bluetooth && sudo systemctl start bluetooth"
+```
+
+Then bring up the adapter and restart rpi-pill:
 
 ```bash
 ssh koger@rpi3 "sudo hciconfig hci0 up && sudo systemctl restart rpi-pill"
@@ -193,7 +205,7 @@ If a Pill's `readingCount` is 0 and `latest` is null, that Pill hasn't been dete
 |---------|-------------|-----|
 | SSH fails | Pi not on network | Wait 1-2 min, check Ethernet/WiFi |
 | Service inactive | Didn't start on boot | `sudo systemctl start rpi-pill` |
-| BLE poweredOff | hci0 not up | `sudo hciconfig hci0 up && sudo systemctl restart rpi-pill` |
+| BLE poweredOff | bluetooth.service disabled or hci0 not up | Check `systemctl is-active bluetooth`, enable if needed, then `sudo hciconfig hci0 up && sudo systemctl restart rpi-pill` |
 | No readings for one Pill | That Pill not advertising | Wait 5 min, shake Pill, check BLE mode. Other Pill may still work. |
 | Dashboard unreachable | Wrong IP / service down | `ssh koger@rpi3 "hostname -I"`, check service |
 | Brewfather errors | Wrong logging ID | Check `.env`, verify in Brewfather Settings |
