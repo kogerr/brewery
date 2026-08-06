@@ -2,6 +2,8 @@
 
 This project contains scripts to interact with Brewfather (recipe management) and Hopline.hu (Hungarian homebrew shop).
 
+> **Agent instruction files:** this file is read by Claude Code. `AGENTS.md` holds the same project guide for Codex CLI, plus the skill workflows written out longhand (Codex doesn't read `.claude/skills/`). Keep both in sync when adding scripts or changing conventions.
+
 ## Scripts
 
 - `brewfather_recipes.js` - Lists all Brewfather recipes (outputs JSON array of `{_id, name}`)
